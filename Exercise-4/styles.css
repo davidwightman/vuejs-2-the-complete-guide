@@ -13,3 +13,11 @@
   background-color: gray;
   width: 50px !important;
 }
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
