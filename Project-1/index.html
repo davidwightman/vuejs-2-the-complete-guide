@@ -12,7 +12,8 @@
         <div class="small-6 columns">
             <h1 class="text-center">YOU</h1>
             <div class="healthbar">
-                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
+                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;"
+                :style="{ width: you + '%' }">
                     {{ you }}
                 </div>
             </div>
@@ -20,7 +21,8 @@
         <div class="small-6 columns">
             <h1 class="text-center">MONSTER</h1>
             <div class="healthbar">
-                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
+                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;"
+                :style="{ width: monster + '%' }">
                     {{ monster }}
                 </div>
             </div>
@@ -31,8 +33,8 @@
             <button id="start-game" @click="startGame">START NEW GAME</button>
         </div>
     </section>
-    <div v-else>
-    <section class="row controls">
+    
+    <section class="row controls" v-else>
         <div class="small-12 columns">
             <button id="attack" @click="attack">ATTACK</button>
             <button id="special-attack" @click="specialAttack">SPECIAL ATTACK</button>
@@ -40,17 +42,17 @@
             <button id="give-up" @click="giveUp">GIVE UP</button>
         </div>
     </section>
-    <section class="row log">
+    <section class="row log" v-if="battle.length">
         <div class="small-12 columns">
-            <ul>
-                <li>
-
+            <ul >
+                <li v-for="item in battle">
+                    <div>{{item.monster}}</div>
+                    <div>{{item.you}}</div>
                 </li>
             </ul>
         </div>
     </section>
     </div>
-</div>
 <script src="app.js"></script>
 
 </body>
