@@ -1,13 +1,14 @@
 <template>
     <div class="container">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-xs-12">
                 <header>
                     <h1>Server Status</h1>
                 </header>
             </div>
         </div>
-        <hr>
+        <hr> -->
+        <Header />
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <ul class="list-group">
@@ -34,8 +35,12 @@
 </template>
 
 <script>
+import Header from './Header.vue'
+
+export default {
+    components: {Header},
+}
 </script>
 
 <style>
-
 </style>
