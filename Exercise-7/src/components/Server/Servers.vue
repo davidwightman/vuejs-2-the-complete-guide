@@ -1,19 +1,17 @@
 <template>
     <div class="col-xs-12 col-sm-6">
         <ul class="list-group">
-            <li class="list-group-item"
-                v-for="item in servers"
-                @click="getServerDetail(event)"
-                :currnet-server.id = "id"
-                :currnet-server.status = "status"
-            >
-                    Server #{{ item.id }}
-            </li>
+           <Server 
+           v-for="server in servers"
+           :id="server.id"
+           @showDetailEvent="showDetailEvent($event)"/>
         </ul>
     </div>
 </template>
 
 <script>
+import Server from './Server.vue'
+
 export default {
     data: function() {
          return{
@@ -29,11 +27,16 @@ export default {
     },
     methods: {
         getServerDetail(event) {
-            // console.log(`clicked`)
-            console.log(event)
             this.currentServer = this.servers[event.target.value]
-            console.log(this.currentServer)
+        },
+        showDetailEvent(e){
+            e = e-1
+            this.$emit('showDetailAppEvent', this.servers[e])
         }
+
+    },
+    components: {
+        Server
     }
    
 }

@@ -3,8 +3,9 @@
         <app-header></app-header>
         <hr>
         <div class="row">
-            <servers></servers>
-            <app-server-details></app-server-details>
+            <Servers @showDetailAppEvent="showDetailFinalEvent($event)" />
+            <app-server-details :status="serverStatus"
+            :id="serverId"></app-server-details>
         </div>
         <hr>
         <app-footer></app-footer>
@@ -18,15 +19,23 @@
     import ServerDetails from './components/Server/ServerDetails.vue';
 
     export default {
+        data: function(){
+            return {
+                serverStatus: '',
+                serverId: ''
+            }
+        },
         components: {
             appHeader: Header,
             Servers,
             'app-server-details': ServerDetails,
             'app-footer': Footer
+        },
+        methods: {
+            showDetailFinalEvent(e){
+                this.serverStatus = e.status
+                this.serverId = e.id
+            },
         }
     }
 </script>
-
-<style>
-
-</style>
