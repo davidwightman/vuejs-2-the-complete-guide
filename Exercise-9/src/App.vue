@@ -6,9 +6,14 @@
                     <!-- Exercise 1 -->
                     <!-- Create a Signup Form where you retrieve the following Information -->
                     <!-- Full Name (First Name + Last Name) -->
+                    <input value="First Name"/>
+                     <input value="Last Name"/>
                     <!-- Mail -->
+                     <input value="Mail"/>
                     <!-- Password -->
+                     <input value="Password"/>
                     <!-- Store Data? Yes/No -->
+                    <input value="Store Data"/>
 
                     <!-- Exercise 2 -->
                     <!-- Only display the Form if it has NOT been submitted -->
