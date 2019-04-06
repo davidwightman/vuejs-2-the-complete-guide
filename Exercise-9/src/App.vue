@@ -2,16 +2,16 @@
     <div class="container">
         <form>
             <div class="row">
-                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" v-if="submitted === false">
                     <!-- Exercise 1 -->
                     <!-- Create a Signup Form where you retrieve the following Information -->
                     <!-- Full Name (First Name + Last Name) -->
                     <input value="First Name"/>
-                     <input value="Last Name"/>
+                    <input value="Last Name"/>
                     <!-- Mail -->
-                     <input value="Mail"/>
+                    <input value="Mail"/>
                     <!-- Password -->
-                     <input value="Password"/>
+                    <input value="Password"/>
                     <!-- Store Data? Yes/No -->
                     <input value="Store Data"/>
 
@@ -27,7 +27,7 @@
         </form>
         <hr>
         <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" v-if="submitted === true">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4>Your Data</h4>
@@ -46,6 +46,11 @@
 
 <script>
     export default {
+        data: function(){
+            return {
+                submitted: false
+            }
+        }
     }
 </script>
 
