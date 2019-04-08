@@ -2,22 +2,21 @@
   <div>
     <div>Input A Quote</div>
     <input placeholder="enter a quote here" v-model="inputData"/> 
-    <button @click="saveQuote">Add Quote</button>
+    <button @click="saveQuoteEvent">Add Quote</button>
   </div>
 </template>
 <script>
 export default {
-  props: ['saveQuoteEvent'],
+  props: ['saveQuote'],
   data: function(){
     return {
       inputData: '',
     }
   },
   methods: {
-    saveQuote(){
-      console.log(`in save quote ${this.inputData}`)
+    saveQuoteEvent: function(){
       this.$emit('saveQuoteEvent', this.inputData)
-     // this.inputData = ''
+      this.inputData = ''
     }
   }
 }

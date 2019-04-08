@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
-<InputQuote @saveQuote="saveQuoteEvent($event)"/>
-<DisplayQuotes />
-    </div>
+  <div class="container">
+    <InputQuote @saveQuoteEvent="saveQuote($event)"/>
+    <DisplayQuotes v-bind:quotes="quotes"/>
+  </div>
 </template>
 
 <script>
@@ -15,17 +15,16 @@ import InputQuote from './InputQuote.vue'
           quotes: []
         }
       },
-        components: {
-            DisplayQuotes,
-            InputQuote
-        },
-        methods: {
-            saveQuoteEvent(quote){
-              console.log(`in save quote event`)
-              this.quotes = this.quotes.push(quote)
-              console.log(this.quotes)
-            }
+      components: {
+        DisplayQuotes,
+        InputQuote
+      },
+      methods: {
+        saveQuote: function(e){
+          console.log(`in save quote event ${e}!!!!!!!!!!!`)
+          this.quotes.push(e)
         }
+      }
     }
 </script>
 
