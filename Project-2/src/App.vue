@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <InputQuote @saveQuoteEvent="saveQuote($event)"/>
-    <DisplayQuotes v-bind:quotes="quotes"/>
+    <DisplayQuotes v-bind:quotes="quotes" @deleteQuoteApp="deleteQuoteApp($event)"/>
   </div>
 </template>
 
@@ -23,6 +23,9 @@ import InputQuote from './InputQuote.vue'
         saveQuote: function(e){
           console.log(`in save quote event ${e}!!!!!!!!!!!`)
           this.quotes.push(e)
+        },
+        deleteQuoteApp(key){
+          this.quotes.splice(key, 1)
         }
       }
     }

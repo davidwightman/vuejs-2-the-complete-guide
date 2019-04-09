@@ -1,7 +1,7 @@
 <template>
 <div>
     <ul>
-        <Quote :quotes="quotes"/>
+        <Quote :quotes="quotes" @deleteQuoteEvent="$emit('deleteQuoteApp', $event)"/>
     </ul>
     </div>
 </template>
@@ -10,7 +10,7 @@
 import Quote from './Quote.vue'
 
 export default {
-    props: ['quotes'],
+    props: ['quotes', 'deleteQuoteApp'],
     components: {
         Quote
     }
