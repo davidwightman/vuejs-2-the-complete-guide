@@ -6,15 +6,22 @@
                     <!-- Exercise 1 -->
                     <!-- Create a Signup Form where you retrieve the following Information -->
                     <!-- Full Name (First Name + Last Name) -->
-                    <input value="First Name"/>
-                    <input value="Last Name"/>
+                    <FullName vmodel="person.fullName" @sendFullName="sendFullName($event)" />
+                    <!-- FirstName: <input v-model="person.firstName" placeholder="First Name"/>
+                    LastName: <input v-model="person.lastName" placeholder="Last Name"/> -->
                     <!-- Mail -->
-                    <input value="Mail"/>
+                    Mail: <input v-model="person.mail" placeholder="Mail"/>
                     <!-- Password -->
-                    <input value="Password"/>
+                    Password: <input v-model="person.password" placeholder="Password"/>
                     <!-- Store Data? Yes/No -->
-                    <input value="Store Data"/>
-
+                    <input type="radio" id="yes" value="Yes" v-model="person.storeData">
+                    <label for="yes">Yes</label>
+                    <br>
+                    <input type="radio" id="no" value="No" v-model="person.storeData">
+                    <label for="no">No</label>
+                    <br>
+                    <button type="submit" @click.prevent="onSubmit">submit</button>
+    
                     <!-- Exercise 2 -->
                     <!-- Only display the Form if it has NOT been submitted -->
                     <!-- Display the Data Summary ONCE the Form HAS been submitted -->
@@ -33,10 +40,10 @@
                         <h4>Your Data</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Full Name: </p>
-                        <p>Mail: </p>
-                        <p>Password: </p>
-                        <p>Store in Database?: </p>
+                        <p>Full Name: {{person.fullName}}</p>
+                        <p>Mail: <span>{{person.mail}}</span></p>
+                        <p>Password: <span>{{person.password}}</span></p>
+                        <p>Store in Database?: {{person.storeData}}</p>
                     </div>
                 </div>
             </div>
@@ -45,12 +52,34 @@
 </template>
 
 <script>
+import FullName from './FullName.vue'
     export default {
+        components: {
+            FullName
+        },
         data: function(){
             return {
-                submitted: false
+                submitted: false,
+                person: {
+                    fullName: '',
+                    mail: '',
+                    password: '',
+                    storeData: 'No'
+                }
+                
+            }
+        },
+        methods: {
+            onSubmit(){
+                this.sendFullName()
+                this.submitted = true;
+            },
+            sendFullName(e){
+                console.log(e)
+
             }
         }
+        
     }
 </script>
 
